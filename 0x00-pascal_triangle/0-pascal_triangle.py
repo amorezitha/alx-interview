@@ -9,18 +9,29 @@ def pascal_triangle(n):
         number of rows
         return:
         Pascal's triangle """
-        new_pascal = []
+        pascal_triangle = list()
 
-        """ Assumes that n is an integer """
         if n <= 0:
-            return new_pascal
+            return pascal_triangle
 
-        for i in range(n):
-            row_index = [1]
-            if new_pascal:
-                final_row = new_pascal[-1]
-                row_index.extend([sum(pair) for pair in
-                                                  zip(final_row, final_row[1:])])
-                row_index.append(1)
-                new_pascal.append(row_index)
-                return (new_pascal)
+        # Add first 1.
+        if n > 0:
+            pascal_triangle.append([1])
+
+        # Add second line.
+        if n > 1:
+            pascal_triangle.append([1, 1])
+
+        for x in range(3, n+1):
+            pascal_triangle.append([0] * x)
+
+            # Set first and last 1
+            pascal_triangle[x-1][0] = 1
+            pascal_triangle[x-1][x-1] = 1
+
+            # Calculate middle numbers
+            for y in range(1, x-1):
+                pascal_triangle[x-1][y] = \
+                        pascal_triangle[x-2][y-1] + pascal_triangle[x-2][y]
+
+        return pascal_triangle
