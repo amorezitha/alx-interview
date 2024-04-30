@@ -2,7 +2,8 @@
 """Write a method that determines if all the boxes can be opened."""
 
 def canUnlockAll(boxes):
-    """ A  method that determines if all the boxes can be opened."""
+    """ Look if the box is unlocked or not
+    Return true if is unlocked or false."""
 
     # Look to the unlocked boxes
     unlocked_box = [0]
