@@ -3,21 +3,19 @@
 
 def canUnlockAll(boxes):
     """ A  method that determines if all the boxes can be opened.
-    Parameters:
-    boxes (List[List[int]]): The list of lists representing the boxes
-            and their keys.
     Returns:
     bool: True if all boxes can be unlock, else False"""
-    if type(boxes) is not list:
+
+    # Look to the unlocked boxes
+    unlocked_box = [0]
+    for i in unlocked_box:
+        for j in boxes[i]:
+            if j < len(boxes):
+                if j not in unlocked_box:
+                    unlocked_box.append(j)
+
+    # Look the the length of the open box and all the boxes
+    if len(boxes) == len(unlocked_box):
+        return True
+    else:
         return False
-    elif (len(boxes)) == 0:
-        return False
-    for k in range(1, len(boxes) - 1):
-        boxes_checked = False
-        for idx in range(len(boxes)):
-            boxes_checked = k in boxes[idx] and k != idx
-            if boxes_checked:
-                break
-            if boxes_checked is False:
-                return boxes_checked
-            return True
