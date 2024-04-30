@@ -3,8 +3,9 @@
 
 def canUnlockAll(boxes):
     """ A  method that determines if all the boxes can be opened.
-    Args:
-    boxes (list of boxes)
+    Parameters:
+    boxes (List[List[int]]): The list of lists representing the boxes
+            and their keys.
     Returns:
     bool: True if all boxes can be unlock, else False"""
     n = len(boxes)
