@@ -15,4 +15,3 @@ def minOperations(n):
             n /= minimumOperations
         minimumOperations += 1
     return totalOperations
-
